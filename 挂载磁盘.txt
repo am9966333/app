@@ -1,0 +1,41 @@
+https://www.jianshu.com/p/09584783bd1d
+
+
+查看系统检测的硬盘 命令：lsblk
+
+
+sudo mkfs -t ext4 /dev/sdb
+sudo mkfs -t ext4 /dev/sdc
+sudo mkfs -t ext4 /dev/sdd
+
+
+sudo mkdir /datab
+
+sudo mkdir /datac
+
+sudo mkdir /datad
+
+
+
+sudo mount /dev/sdb /datab
+
+sudo mount /dev/sdc /datac
+
+sudo mount /dev/sdd /datad
+
+
+使用df -h 再次检查是否正常
+
+
+
+到 /etc/fstab 下配置挂载信息，添加一条记录，如有就复制一条，修改一下即可（十分重要）
+
+
+/dev/sdb      /datab   auto    defaults,nofail,comment=cloudconfig     0       2
+
+
+
+ sudo mount -a  测试是否挂载成功（如果出错，不要重启，否则就GG了）
+
+
+ df -h 
